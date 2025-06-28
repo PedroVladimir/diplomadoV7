@@ -1,13 +1,5 @@
 import 'dotenv/config'
 
-const requireEnv = (key) => {
-    const value = process.env[key];
-    if (!value) {
-        throw new Error(`Missing enviroment ${key} is not defined`);
-    }
-    return value;
-};
-
 const config = {
     PORT: process.env.PORT || 3000,
     DB_HOST: process.env.DB_HOST,
@@ -18,7 +10,7 @@ const config = {
     BCRYPT_SALT_ROUNDS: +process.env.BCRYPT_SALT_ROUNDS,
     JWT_SECRET: process.env.JWT_SECRET,
     JWT_EXPIRES_SECONDS: process.env.JWT_EXPIRES_SECONDS,
-    DB_USE_SSL: process.env.DB_USE_SSL,
+    DB_USE_SSL: process.env.DB_USE_SSL ?? false,
 }; 
 
 export default config;
